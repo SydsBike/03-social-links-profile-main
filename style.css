@@ -1,0 +1,217 @@
+/* Import fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+/* Custom Properties */
+:root {
+  /* Base Font Size */
+  font-size: 16px;
+
+  /* Typography */
+
+  --ff-primary: "Inter", serif;
+
+  --fw-regular: 400;
+  --fw-medium: 600;
+  --fw-bold: 700;
+
+  /* Colors */
+
+  --white: hsl(0, 0%, 100%);
+
+  --green: hsl(75, 94%, 57%);
+
+  --grey700: hsl(0, 0%, 20%);
+  --grey-800: hsl(0, 0%, 12%);
+  --grey-900: hsl(0, 0%, 8%);
+
+  --fs-14: 0.875rem;
+  --fs-24: 1.5rem;
+
+  /* Spacing */
+
+  --sp-4: 0.25rem;
+  --sp-12: 0.75rem;
+  --sp-16: 1rem;
+  --sp-24: 1.5rem;
+  --sp-fluid-24-40: clamp(1.5rem, 1.1479rem + 1.5023vw, 2.5rem);
+
+  /* Radius */
+  --br-8: 0.5rem;
+  --br-12: 0.75rem;
+}
+
+/* CSS Resets */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+html,
+body {
+  height: 100%;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.5;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Utility Classes */
+
+.fs-24 {
+  font-size: var(--fs-24);
+}
+
+.fw-med {
+  font-weight: var(--fw-medium);
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+
+.clr-green {
+  color: var(--green);
+}
+
+/* General Styling */
+
+body {
+  background-color: var(--grey-900);
+  color: var(--white);
+  font-family: var(--ff-primary);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-regular);
+  text-align: center;
+  display: grid;
+  place-content: center;
+}
+
+.card {
+  border-radius: var(--br-12);
+  background-color: var(--grey-800);
+  margin: var(--sp-24);
+  padding: var(--sp-fluid-24-40);
+  width: clamp(327px, min(calc(327px + (100vw - 375px) * 0.329), calc(456px + (100vw - 768px) * -0.107)), 456px);
+}
+.card-wrapper {
+  display: grid;
+  gap: var(--sp-24);
+}
+
+.primary-info {
+  display: grid;
+  justify-items: center;
+  gap: var(--sp-24);
+}
+
+.author {
+  display: grid;
+  gap: var(--sp-4);
+}
+.avatar {
+  height: 88px;
+  width: 88px;
+  border-radius: 50%;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--sp-16);
+}
+
+.list-item {
+  font-weight: var(--fw-bold);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--grey700);
+  padding-block: var(--sp-12);
+  border-radius: var(--br-8);
+}
+
+.list-item > a {
+  text-decoration: none;
+}
+
+.list-item:hover,
+.list-item:focus-visible {
+  background-color: var(--green);
+  color: var(--grey-900);
+  cursor: url("./assets/images/handcursor.svg"), pointer;
+}
